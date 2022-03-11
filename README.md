@@ -17,8 +17,8 @@ Is the best programming language for web. Made with ❤️ by
 ### Run and Develop
 
 ``` bash
-$ git clone https://github.com/victor7w7r/036solidts
-$ cd 036solidts
+$ git clone https://github.com/victor7w7r/036solidjs
+$ cd 036solidjs
 $ npm i
 $ npm start #Run develop
 $ npm build #Make production build
