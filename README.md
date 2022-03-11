@@ -1,4 +1,4 @@
-# 036solidts
+# 036solidjs
 
 A very simple template for solidjs, with essential packages and TypeScript/SCSS
 
