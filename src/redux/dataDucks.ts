@@ -1,5 +1,4 @@
-
-import { DataState, ActionTypeData, ActionData } from '../types/TData';
+import { DataState, ActionTypeData, ActionData, Actions } from '../types/TData';
 
 export function dataReducer (state: DataState = { data: "" } , action: ActionData): DataState {
     switch (action.type) {
@@ -24,7 +23,7 @@ export function dataReducer (state: DataState = { data: "" } , action: ActionDat
     }
 };
 
-export const actions: any = {
+export const actions: Actions = {
     send: (text: string) => ({
         type: ActionTypeData.DATA_WRITE
         , text 

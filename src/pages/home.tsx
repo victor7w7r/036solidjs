@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 import type { Component, JSX } from 'solid-js';
 
 import reduxStore from "../redux/store";

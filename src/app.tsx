@@ -1,9 +1,9 @@
 import type { Component, JSX } from 'solid-js';
 import { Route, Router, Routes } from 'solid-app-router';
 
-import { Header } from './components/header';
-import { Home } from './pages/home';
-import { ReduxEx } from './pages/reduxex';
+import { Header } from './components/Header';
+import { Home } from './pages/Home';
+import { ReduxEx } from './pages/Reduxex';
 
 import './styles/style.scss';
 

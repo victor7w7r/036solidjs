@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 import type { Component, JSX } from 'solid-js';
 import { Link } from 'solid-app-router';
 

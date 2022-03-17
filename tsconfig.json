@@ -1,21 +1,15 @@
 {
-    "compilerOptions": {
-        "types": [
-            "solid-js"
-        ],
-        "target": "ESNext",
-        "strict": true,
-        "sourceMap": true,
-        "rootDir": "src",
-        "moduleResolution": "node",
-        "module": "ESNext",
-        "lib": [
-            "es6",
-            "dom"
-        ],
-        "jsxImportSource": "solid-js",
-        "jsx": "preserve",
-        "esModuleInterop": true,
-        "allowJs": true
-    }
+  "compilerOptions": {
+    "strict": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+    "types": ["vite/client"],
+    "noEmit": true,
+    "isolatedModules": true
+  }
 }

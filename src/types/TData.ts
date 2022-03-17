@@ -1,9 +1,3 @@
-export interface DataState {
-    data?: string,
-    loading?: boolean;
-    success?: boolean;
-};
-
 export enum ActionTypeData {
     DATA_SEND_REQUEST = 'DATA_SEND_REQUEST',
     DATA_SEND_SUCCESS = 'DATA_SEND_SUCCESS',
@@ -11,23 +5,33 @@ export enum ActionTypeData {
     DATA_WRITE = 'DATA_WRITE',
 };
 
-export interface actionDataRequest {
+export type DataState = {
+    data?: string,
+    loading?: boolean;
+    success?: boolean;
+};
+
+export type actionDataRequest = {
     type: ActionTypeData.DATA_SEND_REQUEST;
 };
 
-export interface actionDataSuccess {
+export type actionDataSuccess = {
     type: ActionTypeData.DATA_SEND_SUCCESS;
     text: string;
 };
 
-export interface actionDataFail {
+export type actionDataFail = {
     type: ActionTypeData.DATA_SEND_FAIL;
     text: string;
 };
 
-export interface actionDataWrite {
+export type actionDataWrite = {
     type: ActionTypeData.DATA_WRITE;
     text: string;
+};
+
+export type Actions = {
+    send: (text: string) => actionDataWrite
 };
 
 export type ActionData = 
