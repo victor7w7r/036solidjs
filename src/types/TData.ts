@@ -31,7 +31,7 @@ export type actionDataWrite = {
 };
 
 export type Actions = {
-    send: (text: string) => actionDataWrite
+    send?: (text: string) => actionDataWrite
 };
 
 export type ActionData = 

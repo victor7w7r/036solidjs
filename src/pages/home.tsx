@@ -2,13 +2,12 @@ import type { Component, JSX } from 'solid-js';
 
 import reduxStore from "../redux/store";
 import useRedux from "../redux/useRedux";
-import { actions } from "../redux/dataDucks";
 
 import brand from "../assets/brand.png";
 
 export const Home: Component = (): JSX.Element => {
     
-    const [store, {send}] = useRedux(reduxStore, actions);
+    const [store] = useRedux(reduxStore);
 
     return (
         <>

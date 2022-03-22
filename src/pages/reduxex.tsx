@@ -7,7 +7,7 @@ import { actions } from "../redux/dataDucks";
 
 export const ReduxEx: Component = (): JSX.Element => {
 
-    const [text, setText] = createSignal("");
+    const [text, setText] = createSignal<string>("");
     const [store, { send }] = useRedux(reduxStore, actions);
 
     const handleSubmit = (e: Event): void => {
