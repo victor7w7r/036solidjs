@@ -1,14 +1,12 @@
 import { createSignal, createEffect } from "solid-js";
 import type { Component, JSX } from 'solid-js';
 
-import reduxStore from "../redux/store";
-import useRedux from "../redux/useRedux";
-import { actions } from "../redux/dataDucks";
+import { storeCreated, actions, useRedux } from "../redux";
 
 export const ReduxEx: Component = (): JSX.Element => {
 
     const [text, setText] = createSignal<string>("");
-    const [store, { send }] = useRedux(reduxStore, actions);
+    const [store, { send }] = useRedux(storeCreated, actions);
 
     const handleSubmit = (e: Event): void => {
         e.preventDefault();

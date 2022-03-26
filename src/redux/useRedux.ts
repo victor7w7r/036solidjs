@@ -2,9 +2,9 @@ import { onCleanup } from "solid-js";
 import { createStore } from "solid-js/store";
 import { Store } from "redux";
 
-import { Actions } from "../types/TData";
+import { Actions } from "../types";
 
-export default function useRedux(store: Store, actions?: Actions) {
+export const useRedux = (store: Store, actions?: Actions) => {
 
     const [state, setState] = createStore(store.getState());
     const unsubscribe = store.subscribe(() => setState(store.getState()));
@@ -14,7 +14,7 @@ export default function useRedux(store: Store, actions?: Actions) {
     return [state, mapActions(store, actions!)];
 };
 
-function mapActions(store: Store, actions: any) {
+export const mapActions = (store: Store, actions: any) => {
 
     const mapped: any = {};
     for (const key in actions) {

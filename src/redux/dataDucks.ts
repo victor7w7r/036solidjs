@@ -1,4 +1,4 @@
-import { DataState, ActionTypeData, ActionData, Actions } from '../types/TData';
+import { DataState, ActionTypeData, ActionData, Actions } from '../types';
 
 export function dataReducer (state: DataState = { data: "" } , action: ActionData): DataState {
     switch (action.type) {
