@@ -1,8 +1,10 @@
 import type { Component, JSX } from 'solid-js';
 
-import { storeCreated, actions, useRedux } from "../redux";
+import { storeCreated, useRedux } from "../redux";
 
 import brand from "../assets/brand.png";
+
+import HomeStyle from '../styles/Home.module.scss';
 
 export const Home: Component = (): JSX.Element => {
     
@@ -11,7 +13,7 @@ export const Home: Component = (): JSX.Element => {
     return (
         <>
             <h3 className="text-center mt-3">Happy Hacking! with Typescript?</h3>
-            <p className="text-center mt-3 roboto">SCSS is working? Yes, with Roboto</p>
+            <p className={`text-center mt-3 ${HomeStyle.roboto}`}>SCSS is working? Yes, with Roboto</p>
             {
                 store.data !== '' ? (
                     <p className="text-center mt-3">Redux State: Yes, you write <b>{store.data || ''}</b></p>
