@@ -12,7 +12,7 @@ export const Header: Component = (): JSX.Element => {
                 <Link href="/"><div className="btn btn-dark">&nbsp; solidjs + TS Template</div></Link>
             </div>
             <div className="d-flex">
-                <Link href="/redux"><div className="btn btn-dark mr-2">Redux Example</div></Link>
+                <Link href="/store"><div className="btn btn-dark mr-2">Store Example</div></Link>
             </div>
         </div>
     );

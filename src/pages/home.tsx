@@ -1,6 +1,7 @@
 import type { Component, JSX } from 'solid-js';
+import { useStoreon } from '@storeon/solidjs';
 
-import { storeCreated, useRedux } from "../redux";
+import { Events, State } from '../types';
 
 import brand from "../assets/brand.png";
 
@@ -8,17 +9,17 @@ import HomeStyle from '../styles/Home.module.scss';
 
 export const Home: Component = (): JSX.Element => {
     
-    const [store] = useRedux(storeCreated);
+    const [state] = useStoreon<State, Events>();
 
     return (
         <>
             <h3 className="text-center mt-3">Happy Hacking! with Typescript?</h3>
             <p className={`text-center mt-3 ${HomeStyle.roboto}`}>SCSS is working? Yes, with Roboto</p>
             {
-                store.data !== '' ? (
-                    <p className="text-center mt-3">Redux State: Yes, you write <b>{store.data || ''}</b></p>
+                state.data !== '' ? (
+                    <p className="text-center mt-3">Store State: Yes, you write <b>{state.data || ''}</b></p>
                 ) : (
-                    <p className="text-center mt-3">Redux State: Not yet.</p>
+                    <p className="text-center mt-3">Store State: Not yet.</p>
                 ) 
             }
             <div className="row mt-4">

@@ -1,22 +1,22 @@
-import { createSignal, createEffect } from "solid-js";
-import type { Component, JSX } from 'solid-js';
+import { Component, JSX, createSignal, createEffect } from "solid-js";
+import { useStoreon } from '@storeon/solidjs';
 
-import { storeCreated, actions, useRedux } from "../redux";
+import { Events, State } from '../types';
 
-export const ReduxEx: Component = (): JSX.Element => {
+export const StoreEx: Component = (): JSX.Element => {
 
     const [text, setText] = createSignal<string>("");
-    const [store, { send }] = useRedux(storeCreated, actions);
+    const [state, dispatch] = useStoreon<State, Events>();
 
     const handleSubmit = (e: Event): void => {
         e.preventDefault();
-        send(text());
+        dispatch('success',text());
     }
 
     createEffect(() => text());
     return (
         <>
-            <h3 className="text-center mt-3">Redux Example</h3>
+            <h3 className="text-center mt-3">Store Example</h3>
             <p className="text-center mt-3">Write anything in this form and send!</p>
             <form onSubmit={handleSubmit}>
                 <div className="container">
@@ -28,10 +28,10 @@ export const ReduxEx: Component = (): JSX.Element => {
                                     <button type="submit" className="btn btn-primary text-center">Submit</button>
                                 </div>
                                 {
-                                    store.data !== '' ? (
-                                        <p className="text-center mt-3">Redux State: Yes, you write <b>{store.data || ''}</b></p>
+                                    state.data !== '' ? (
+                                        <p className="text-center mt-3">Store State: Yes, you write <b>{state.data || ''}</b></p>
                                     ) : (
-                                        <p className="text-center mt-3">Redux State: Not yet.</p>
+                                        <p className="text-center mt-3">Store State: Not yet.</p>
                                     ) 
                                 }
                         </div>

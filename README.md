@@ -10,16 +10,19 @@ Is the best programming language for web. Made with ❤️ by
 
 ## Extra Packages
 
+- axios: Promise based HTTP client for the browser
 - sass: For nested and optimized CSS
 - firebase: For firebase use
-- redux: The best predictable state container
+- solid-firebase: Solid hooks for firebase.
+- storeon: A tiny event-based Redux-like state manager.
 
-### Run and Develop
+### Run and Develop (Consider using yarn)
 
 ``` bash
 $ git clone https://github.com/victor7w7r/036solidjs
 $ cd 036solidjs
-$ npm i
-$ npm start #Run develop
-$ npm build #Make production build
+$ yarn install
+$ yarn dev #Run develop
+$ yarn build #Make production build
+$ yarn preview #Run production build
 ```
