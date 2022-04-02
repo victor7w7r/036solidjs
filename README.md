@@ -8,11 +8,18 @@ Is the best programming language for web. Made with ❤️ by
 
 ![Alt text](src/assets/brandwhite.png?raw=true "Title")
 
+### Change to blank template
+
+``` bash
+$ git clone https://github.com/victor7w7r/036solidjs
+$ cd 036solidjs
+$ git checkout blank
+```
+
 ## Extra Packages
 
 - axios: Promise based HTTP client for the browser
 - sass: For nested and optimized CSS
-- firebase: For firebase use
 - solid-firebase: Solid hooks for firebase.
 - storeon: A tiny event-based Redux-like state manager.
 
