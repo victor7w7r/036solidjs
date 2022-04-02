@@ -26,7 +26,6 @@ $ git checkout blank
 ### Run and Develop (Consider using yarn)
 
 ``` bash
-$ git clone https://github.com/victor7w7r/036solidjs
 $ cd 036solidjs
 $ yarn install
 $ yarn dev #Run develop
