@@ -1,4 +1,5 @@
 import type { Component, JSX } from "solid-js";
+
 import { useFormChanger } from "../hooks/useFormChanger";
 
 export const StoreEx: Component = (): JSX.Element => {

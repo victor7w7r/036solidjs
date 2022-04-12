@@ -1,4 +1,5 @@
 import { createSignal, createEffect } from "solid-js";
+
 import { binanceData } from '../api/binance';
 import type { TBinance } from '../types/TBinance';
 

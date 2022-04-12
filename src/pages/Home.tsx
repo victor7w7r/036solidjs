@@ -47,7 +47,6 @@ export const Home: Component = (): JSX.Element => {
                                     </>
                                 )
                         }
-
                     </div>
                 </div>
             </div>
