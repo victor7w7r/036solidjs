@@ -1,5 +1,7 @@
-import axios from 'axios';
+import { fromFetch } from 'rxjs/fetch';
 
-export const binanceData = axios.create({
-    baseURL: 'https://api2.binance.com/api/v3/ticker/24hr'
+import type { TBinance } from '../types';
+
+export const binance$ = fromFetch<TBinance[]>('https://api2.binance.com/api/v3/ticker/24hr', {
+    selector: response => response.json()
 });

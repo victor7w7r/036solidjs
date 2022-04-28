@@ -1,23 +1,19 @@
 import { createSignal, createEffect } from "solid-js";
 
-import { binanceData } from '../api/binance';
-import type { TBinance } from '../types/TBinance';
+import { binance$ } from '../api/binance';
+import type { TBinance } from '../types';
 
 export const useBinance = () => {
     
     const [ bin, setBin ] = createSignal<TBinance>();
-    
-    const [ isLoading,  setIsLoading ] = createSignal<boolean>(true);
-    
-    const getCurrencies = async() => {
-        const resp = await binanceData.get<TBinance[]>('');
-        const BTCUSDT = resp.data.find(curr => curr.symbol === 'BTCUSDT');
-        setBin( BTCUSDT );
-        setIsLoading(false);
-    };
+    const [ isLoading, setIsLoading ] = createSignal<boolean>(true);
     
     createEffect(() => {
-        getCurrencies();
+        binance$.subscribe( data => {
+            const BTCUSDT = data.find(curr => curr.symbol === 'BTCUSDT');
+            setBin(BTCUSDT);
+            setIsLoading(false);
+        });
     });
     
     return { bin, isLoading };
