@@ -20,7 +20,6 @@ $ git checkout blank
 
 - rxjs: Reactive Extensions Library for JavaScript
 - sass: For nested and optimized CSS
-- solid-firebase: Solid hooks for firebase
 - storeon: A tiny event-based Redux-like state manager
 
 ### Run and Develop (Consider using yarn)
