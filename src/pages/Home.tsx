@@ -1,8 +1,7 @@
-import type { Component, JSX } from 'solid-js';
-import { useStoreon } from '@storeon/solidjs';
+import { Component, JSX, useContext } from 'solid-js';
 
-import { Events, State } from '../types';
-import { useBinance } from '../hooks/useBinance';
+import { createBinance } from '../primitives/createBinance';
+import { DataContext } from '../context';
 
 import brand from "../assets/brand.png";
 
@@ -10,40 +9,40 @@ import HomeStyle from '../styles/Home.module.scss';
 
 export const Home: Component = (): JSX.Element => {
     
-    const [state] = useStoreon<State, Events>();
-    const { bin, isLoading } = useBinance();
+    const { dataState } = useContext(DataContext);
+    const { bin, isLoading } = createBinance();
 
     return (
         <>
-            <h3 className="text-center mt-3">Happy Hacking! with Typescript?</h3>
-            <p className={`text-center mt-3 ${HomeStyle.roboto}`}>SCSS is working? Yes, with Roboto</p>
+            <h3 class="text-center mt-3">Happy Hacking! with Typescript?</h3>
+            <p class={`text-center mt-3 ${HomeStyle.roboto}`}>SCSS is working? Yes, with Roboto</p>
             {
-                state.data
-                    ? <p className="text-center mt-3">Store State: Yes, you write <b>{state.data || ''}</b></p>
-                    : <p className="text-center mt-3">Store State: Not yet.</p>
+                dataState().data
+                    ? <p class="text-center mt-3">Store State: Yes, you write <b>{dataState().data || ''}</b></p>
+                    : <p class="text-center mt-3">Store State: Not yet.</p>
             }
-            <div className="row mt-4">
-                <div className="col-sm"></div>
-                    <div className="col-sm">
-                        <h4 className="text-center mt-3">Made with love by</h4>
-                            <div className="d-flex justify-content-center">
+            <div class="row mt-4">
+                <div class="col-sm"></div>
+                    <div class="col-sm">
+                        <h4 class="text-center mt-3">Made with love by</h4>
+                            <div class="d-flex justify-content-center">
                                 <img src={brand} alt=""/>
                             </div>
                     </div>
-                <div className="col-sm"></div>
+                <div class="col-sm"></div>
             </div>
             <br />
-            <div className="container">
-                <div className="row d-flex justify-content-center">
-                    <div className="col-3">
-                        <h3 className="text-center mt-3">Lets see bitcoin price</h3>
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-3">
+                        <h3 class="text-center mt-3">Lets see bitcoin price</h3>
                         <br />
                         {
                             isLoading()
-                                ? <p className='text-center'>Loading...</p>  
+                                ? <p class='text-center'>Loading...</p>  
                                 : ( <>
-                                        <p className='text-center'>Symbol: {bin()?.symbol}</p>
-                                        <p className='text-center'>Price: {bin()?.askPrice}</p>
+                                        <p class='text-center'>Symbol: {bin()?.symbol}</p>
+                                        <p class='text-center'>Price: {bin()?.askPrice}</p>
                                     </>
                                 )
                         }

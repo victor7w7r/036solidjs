@@ -6,7 +6,7 @@ import type { TBinance } from '../types';
 
 let subscription = new Subscription();
 
-export const useBinance = () => {
+export const createBinance = () => {
     
     const [ bin, setBin ] = createSignal<TBinance>();
     const [ isLoading, setIsLoading ] = createSignal<boolean>(true);
