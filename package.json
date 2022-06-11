@@ -10,11 +10,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@storeon/solidjs": "^3.0.1",
+    "@solid-primitives/reducer": "^0.0.100",
     "rxjs": "^7.5.5",
     "solid-app-router": "^0.3.3",
-    "solid-js": "^1.4.3",
-    "storeon": "^3.1.5"
+    "solid-js": "^1.4.3"
   },
   "devDependencies": {
     "sass": "^1.52.1",
