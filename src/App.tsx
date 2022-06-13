@@ -1,25 +1,24 @@
 import type { Component, JSX } from 'solid-js';
 import { Route, Router, Routes } from 'solid-app-router';
 
-import { MainLayout } from './components/layouts/MainLayout';
-import { DataProvider } from './context/DataContext';
+import { DataProvider, ThemeProvider } from './context';
 
-import { Home } from './pages/Home';
-import { StoreEx } from './pages/StoreEx';
+import { HomePage } from './pages/HomePage';
+import { StorePage } from './pages/StorePage';
 
-import './styles/style.scss';
+import './index.scss';
 
 export const App: Component = (): JSX.Element => 
     <Router>
         <DataProvider>
-            <MainLayout>
+            <ThemeProvider>
                 <Routing />
-            </MainLayout>
+            </ThemeProvider>
         </DataProvider>
     </Router>;
     
 const Routing: Component = (): JSX.Element =>
     <Routes>
-        <Route path="/store" element={<StoreEx />} />
-        <Route path="/" element={<Home />}/>
+        <Route path="/store" element={<StorePage />} />
+        <Route path="/" element={<HomePage />}/>
     </Routes>;

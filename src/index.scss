@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+@font-face {
+	font-family: 'amina-reska';
+	src: url('/amina-reska.eot'),
+        url('/amina-reska.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@layer base {
+
+    .standard-button {
+        @apply dark:bg-white/50 bg-stone-800/10 hover:bg-slate-300/80
+        hover:scale-105 text-black font-bold py-2 px-4 rounded-full transition 
+        ease-in-out select-none disabled:text-black/50;
+    }
+
+	.color-button {
+		@apply border-4 rounded-full select-none w-16 h-16 mx-8 
+		transition-colors duration-1000;
+	}
+
+	.blue-button {
+		@apply color-button bg-sky-300 border-sky-600/100 
+		dark:bg-sky-900 dark:border-sky-700/100;
+	}
+
+	.purple-button {
+		@apply color-button bg-purple-300 border-purple-600/100 
+		dark:bg-purple-900 dark:border-purple-700/100;
+	}
+
+	.red-button {
+		@apply color-button bg-red-300 border-red-600/100 
+		dark:bg-red-900 dark:border-red-700/100;
+	}
+
+	.emerald-button {
+		@apply color-button bg-emerald-300 border-emerald-600/100 
+		dark:bg-emerald-900 dark:border-emerald-700/100;
+	}
+
+	.adaptable-text {
+		@apply text-slate-900 dark:text-slate-300 transition-colors duration-1000;
+	}
+
+	.adaptable-center-text {
+		@apply adaptable-text text-center;
+	}
+
+	.card-container {
+		@apply max-w-xl py-4 px-8 shadow-lg rounded-lg backdrop-blur-3xl 
+		flex flex-col mb-10 lg:mb-0 lg:items-center lg:justify-center transition-colors duration-1000;
+	}
+
+	.navbar {
+		@apply backdrop-blur-xl transition-colors duration-1000 rounded-full w-11/12 mt-3;
+	}
+}
