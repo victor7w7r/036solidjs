@@ -19,6 +19,7 @@ $ git checkout blank
 ## Extra Packages
 
 - rxjs: Reactive Extensions Library for JavaScript
+- tailwindcss: Utility-first CSS framework for rapidly building custom user interfaces
 - sass: For nested and optimized CSS
 
 ### Run and Develop (Consider using yarn)
