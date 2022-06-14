@@ -19,11 +19,10 @@ export const StorePage: Component = (): JSX.Element => {
         handleSubmit, handleChange, changeToHome,
         text, dataState, controlBackground 
     } = createStore();
-
     
     return (
         <div class="absolute h-screen inset-0 backdrop-blur-xl">
-            <div class='flex items-center tall:mt-32 lg:items-stretch lg:justify-evenly lg:h-3/6'>
+            <div class='flex items-center mt-32 lg:items-stretch lg:justify-evenly lg:h-3/6'>
                 <div class={`card-container ${controlBackground()}`}>
                     <h3 class="adaptable-center-text text-base lg:text-xl font-semibold mb-4">Write anything in this form and send!</h3>
                     <div class="relative z-0 w-64 mx-auto mt-6">
