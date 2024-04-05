@@ -1,4 +1,4 @@
-# 036react
+# 036solidjs
 
 A clean architecture template for Solidjs with useful packages and strict TypeScript
 
@@ -11,6 +11,7 @@ Is the best programming language for web. Made with ❤️ by
 ## Extra Packages
 
 - axios: Promise based HTTP client for the browser and node.js
+- @tanstack/solid-query: A simple and powerful way to manage your state in Solid
 - awilix: Dependency injection for JavaScript and Node.js apps
 - tailwindcss: Utility-first CSS framework for rapidly building custom user interfaces
 
