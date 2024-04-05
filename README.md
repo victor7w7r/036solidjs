@@ -18,15 +18,15 @@ Is the best programming language for web. Made with ❤️ by
 ### Change to blank template
 
 ```bash
-$ git clone https://github.com/victor7w7r/036react
-$ cd 036react
+$ git clone https://github.com/victor7w7r/036solidjs
+$ cd 036solidjs
 $ git checkout blank
 ```
 
 ### Run and Develop (Consider using pnpm)
 
 ```bash
-$ cd 036react
+$ cd 036solidjs
 $ pnpm i   #Install Packages
 $ pnpm dev #Run develop
 ```
