@@ -1,0 +1,14 @@
+**/*.log
+**/*.css
+**/.DS_Store
+dist
+node_modules
+public
+server
+tmp
+.env
+.dockerignore
+.gitignore
+Dockerfile
+LICENSE
+pnpm-lock.yaml
