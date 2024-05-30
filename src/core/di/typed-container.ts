@@ -13,6 +13,7 @@ type ExtractResolverType<T> = T extends Resolver<infer X> ? X : null
 type TypedAwilixContainer<T extends ContainerDefinition> = Pick<
   AwilixContainer,
   Exclude<keyof AwilixContainer, 'resolve'>
+  // eslint-disable-next-line perfectionist/sort-intersection-types
 > & {
   resolve: <K extends keyof T>(
     key: K,

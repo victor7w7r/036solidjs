@@ -2,9 +2,7 @@
 
 A clean architecture template for Solidjs with useful packages and strict TypeScript
 
-## Why Typescript?
-
-Is the best programming language for web. Made with ❤️ by
+## Made with ❤️ by
 
 ![Alt text](src/core/assets/brandwhite.png?raw=true 'Title')
 
@@ -23,7 +21,7 @@ $ cd 036solidjs
 $ git checkout blank
 ```
 
-### Run and Develop (Consider using pnpm)
+### Run and Develop (Consider using bun)
 
 ```bash
 $ cd 036solidjs
