@@ -1,5 +1,3 @@
-import { useContext } from 'solid-js'
-
 import { ThemeContext } from '@/common/ui/context'
 import { darkTheme, whiteTheme } from '~/theme/app-theme'
 

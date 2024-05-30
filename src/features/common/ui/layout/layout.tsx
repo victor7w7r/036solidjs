@@ -1,5 +1,3 @@
-import type { Component, JSX } from 'solid-js'
-
 import { Header } from '@/common/ui/components'
 
 const Layout: Component<Readonly<{ children?: JSX.Element }>> = props => (

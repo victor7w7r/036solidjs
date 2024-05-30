@@ -1,12 +1,3 @@
-import {
-  type Accessor,
-  type Component,
-  createContext,
-  createSignal,
-  type JSX,
-  type Setter
-} from 'solid-js'
-
 type ContextProps = Readonly<{
   data: Accessor<string>
   setData: Setter<string>

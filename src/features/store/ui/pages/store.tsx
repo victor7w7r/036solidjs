@@ -1,8 +1,5 @@
 import '@/store/ui/styles/store.css'
 
-import { useNavigate } from '@solidjs/router'
-import { createSignal, useContext } from 'solid-js'
-
 import { State } from '@/common/ui/components'
 import { DataContext } from '@/common/ui/context'
 import { useTheme } from '@/common/ui/hooks'

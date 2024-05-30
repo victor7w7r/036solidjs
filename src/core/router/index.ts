@@ -1,7 +1,4 @@
 /* eslint-disable perfectionist/sort-objects */
-import type { RouteDefinition } from '@solidjs/router'
-import { lazy } from 'solid-js'
-
 import { homeRouter } from '@/home/ui/router'
 import { storeRouter } from '@/store/ui/router'
 

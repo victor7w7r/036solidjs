@@ -1,7 +1,5 @@
 import './header.css'
 
-import { A } from '@solidjs/router'
-
 import { Toggler } from '@/common/ui/components/toggler/toggler'
 import { useTheme } from '@/common/ui/hooks'
 

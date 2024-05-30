@@ -1,5 +1,3 @@
-import { Show, useContext } from 'solid-js'
-
 import { DataContext } from '@/common/ui/context/data-context'
 
 export const State = () => {

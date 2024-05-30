@@ -1,13 +1,3 @@
-import {
-  type Accessor,
-  type Component,
-  createContext,
-  createSignal,
-  type JSX,
-  onMount,
-  type Setter
-} from 'solid-js'
-
 import { type AppTheme, whiteTheme } from '~/theme/app-theme'
 
 type ContextProps = Readonly<{

@@ -1,6 +1,5 @@
 import '~/styles/global.css'
 
-import { Router } from '@solidjs/router'
 import { QueryClient, QueryClientProvider } from '@tanstack/solid-query'
 import { SolidQueryDevtools } from '@tanstack/solid-query-devtools'
 

@@ -1,7 +1,5 @@
 import '@/home/ui/styles/home.css'
 
-import { useNavigate } from '@solidjs/router'
-
 import { State } from '@/common/ui/components'
 import { useTheme } from '@/common/ui/hooks'
 import { Call } from '@/home/ui/components'
