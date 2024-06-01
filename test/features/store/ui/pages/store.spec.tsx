@@ -4,7 +4,9 @@ import Store from '@/store/ui/pages/store'
 
 const mocks = vi.hoisted(() => ({
   mockNavigate: vi.fn(),
-  mockSetData: vi.fn()
+  mockSetData: vi.fn(),
+  mockSetText: vi.fn(),
+  mockTest: vi.fn().mockReturnValue('test')
 }))
 
 vi.mock('@/common/ui/components', () => ({
@@ -21,11 +23,10 @@ vi.mock('solid-js', async () => {
   const actual = await vi.importActual('solid-js')
   return {
     ...actual,
+    createSignal: () => [mocks.mockTest, mocks.mockSetText],
     useContext: () => ({ setData: mocks.mockSetData })
   }
 })
-
-vi.mock('@solidjs/router', () => ({ useNavigate: vi.fn }))
 
 describe('store', () => {
   it('should render correctly', () => {
@@ -40,13 +41,15 @@ describe('store', () => {
   })
 
   it('should update text state on input change', () => {
-    expect.assertions(1)
+    expect.assertions(2)
 
     render(() => <Store />)
 
     const input = screen.getByRole('textbox')
     fireEvent.input(input, { target: { value: 'test' } })
+    fireEvent.change(input, { target: { value: 'test' } })
 
+    expect(mocks.mockSetText).toHaveBeenCalledTimes(1)
     expect(input).toHaveValue('test')
   })
 
