@@ -1,5 +1,5 @@
 import { ThemeContext } from '@/common/ui/context'
-import { darkTheme, whiteTheme } from '~/theme/app-theme'
+import { darkTheme, whiteTheme } from '~/theme'
 
 export const useTheme = () => {
   const { setTheme, theme } = useContext(ThemeContext)

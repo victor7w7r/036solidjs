@@ -1,4 +1,4 @@
-import { type AppTheme, whiteTheme } from '~/theme/app-theme'
+import { type AppTheme, whiteTheme } from '~/theme'
 
 type ContextProps = Readonly<{
   setTheme: Setter<AppTheme>

@@ -2,15 +2,17 @@ import { fireEvent, render, screen } from '@solidjs/testing-library'
 
 import { Toggler } from '@/common/ui/components/toggler/toggler'
 
-const isDarkMock = vi.fn().mockReturnValue(false)
-const toggleMock = vi.fn()
-const togglePeerMock = vi.fn().mockReturnValue('light-mode')
+const mocks = vi.hoisted(() => ({
+  mockIsDark: vi.fn().mockReturnValue(false),
+  mockToggle: vi.fn(),
+  mockTogglePeer: vi.fn().mockReturnValue('light-mode')
+}))
 
 vi.mock('@/common/ui/hooks', () => ({
   useTheme: () => ({
-    isDark: isDarkMock,
-    toggle: toggleMock,
-    togglePeer: togglePeerMock
+    isDark: mocks.mockIsDark,
+    toggle: mocks.mockToggle,
+    togglePeer: mocks.mockTogglePeer
   })
 }))
 
@@ -34,7 +36,7 @@ describe('toggler', () => {
     const checkbox = screen.getByRole('checkbox')
     fireEvent.click(checkbox)
 
-    expect(toggleMock).toHaveBeenCalled()
+    expect(mocks.mockToggle).toHaveBeenCalled()
   })
 
   it('applies correct class based on theme', () => {
@@ -49,8 +51,8 @@ describe('toggler', () => {
   it('reflects dark mode when isDark is true', () => {
     expect.assertions(2)
 
-    isDarkMock.mockReturnValueOnce(true)
-    togglePeerMock.mockReturnValueOnce('dark-mode')
+    mocks.mockIsDark.mockReturnValueOnce(true)
+    mocks.mockTogglePeer.mockReturnValueOnce('dark-mode')
 
     render(() => <Toggler />)
 

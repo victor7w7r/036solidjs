@@ -22,6 +22,7 @@ export default () => {
               setText((e.target as HTMLInputElement).value)
             }}
             placeholder=' '
+            role='textbox'
             type='text'
           />
           <label class='floating-design' for='floating'>
@@ -31,6 +32,7 @@ export default () => {
         <div class='store-btn'>
           <button
             class='standard-button'
+            data-testid='send-button'
             onClick={() => setData(text())}
             type='button'
           >
@@ -42,6 +44,7 @@ export default () => {
       <div class='centered-button-ctn'>
         <button
           class='standard-button'
+          data-testid='go-home-button'
           onClick={() => navigate('/')}
           type='button'
         >

@@ -1,4 +1,4 @@
-import { stdElements } from '~/theme/app-theme'
+import { stdElements } from '~/theme'
 
 describe('stdElements', () => {
   it('should have control property', () => {

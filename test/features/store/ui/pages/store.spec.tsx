@@ -1,55 +1,73 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 import { fireEvent, render, screen } from '@solidjs/testing-library'
 
-import StorePage from '@/store/ui/pages/store'
+import Store from '@/store/ui/pages/store'
 
-const setDataMock = vi.fn()
-const useThemeMock = vi.fn().mockReturnValue({ control: 'dark-mode' })
+const mocks = vi.hoisted(() => ({
+  mockNavigate: vi.fn(),
+  mockSetData: vi.fn()
+}))
 
-vi.mock('@/common/ui/context', () => ({
-  DataContext: {
-    Consumer: (props: { children: JSX.Element }) =>
-      props.children({ setData: setDataMock }),
-    Provider: (props: { children: JSX.Element }) => props.children
-  }
+vi.mock('@/common/ui/components', () => ({
+  State: () => <div>State Component</div>
 }))
 
 vi.mock('@/common/ui/hooks', () => ({
-  useTheme: useThemeMock
+  useTheme: () => ({ control: 'mock-control' })
 }))
 
-describe('storePage', () => {
-  it('renders the component and interacts with it', () => {
+vi.mock('@solidjs/router', () => ({ useNavigate: () => mocks.mockNavigate }))
+
+vi.mock('solid-js', async () => {
+  const actual = await vi.importActual('solid-js')
+  return {
+    ...actual,
+    useContext: () => ({ setData: mocks.mockSetData })
+  }
+})
+
+vi.mock('@solidjs/router', () => ({ useNavigate: vi.fn }))
+
+describe('store', () => {
+  it('should render correctly', () => {
     expect.assertions(2)
 
-    render(() => <StorePage />)
+    render(() => <Store />)
 
     expect(
-      screen.getByText('Write anything in this form and send!')
+      screen.getByText(/write anything in this form and send!/i)
     ).toBeInTheDocument()
-
-    const input = screen.getByPlaceholderText(' ')
-    fireEvent.change(input, { target: { value: 'Test input' } })
-
-    const sendButton = screen.getByText('Send')
-    fireEvent.click(sendButton)
-
-    expect(setDataMock).toHaveBeenCalledWith('Test input')
+    expect(screen.getByText(/go to home/i)).toBeInTheDocument()
   })
 
-  it('navigates to home on button click', () => {
-    expect.assertions(2)
+  it('should update text state on input change', () => {
+    expect.assertions(1)
 
-    render(() => <StorePage />)
+    render(() => <Store />)
 
-    const navigateMock = vi.fn()
-    vi.mock('@solidjs/router', () => ({
-      useNavigate: () => navigateMock
-    }))
+    const input = screen.getByRole('textbox')
+    fireEvent.input(input, { target: { value: 'test' } })
 
-    const homeButton = screen.getByText('Go to Home')
-    fireEvent.click(homeButton)
+    expect(input).toHaveValue('test')
+  })
 
-    expect(navigateMock).toHaveBeenCalledWith('/')
+  it('should call setData with input text on button click', () => {
+    expect.assertions(1)
+
+    render(() => <Store />)
+
+    const input = screen.getByRole('textbox')
+    fireEvent.input(input, { target: { value: 'test' } })
+
+    fireEvent.click(screen.getByTestId('send-button'))
+    expect(mocks.mockSetData).toHaveBeenCalledWith('test')
+  })
+
+  it('should navigate to home on button click', () => {
+    expect.assertions(1)
+
+    render(() => <Store />)
+
+    fireEvent.click(screen.getByTestId('go-home-button'))
+    expect(mocks.mockNavigate).toHaveBeenCalledWith('/')
   })
 })

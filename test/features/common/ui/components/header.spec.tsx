@@ -2,10 +2,9 @@ import { render, screen } from '@solidjs/testing-library'
 
 import { Header } from '@/common/ui/components/header/header'
 
-vi.mock('@/common/ui/hooks', () => {
-  const useThemeMock = vi.fn().mockReturnValue({ control: 'bg-cyan-700/30' })
-  return { useTheme: useThemeMock }
-})
+vi.mock('@/common/ui/hooks', () => ({
+  useTheme: vi.fn().mockReturnValue({ control: 'bg-cyan-700/30' })
+}))
 
 vi.mock('@solidjs/router', () => ({
   A: (props: { children: JSX.Element }) => <a>{props.children}</a>

@@ -3,13 +3,17 @@ import { render, screen } from '@solidjs/testing-library'
 import { State } from '@/common/ui/components'
 import { DataContext } from '@/common/ui/context/data-context'
 
-const dataMock = vi.fn()
-const setDataMock = vi.fn()
+const mocks = vi.hoisted(() => ({
+  mockData: vi.fn(),
+  mockSetData: vi.fn()
+}))
 
 const renderWithContext = (dataValue: string) => {
-  dataMock.mockReturnValue(dataValue)
+  mocks.mockData.mockReturnValue(dataValue)
   return render(() => (
-    <DataContext.Provider value={{ data: dataMock, setData: setDataMock }}>
+    <DataContext.Provider
+      value={{ data: mocks.mockData, setData: mocks.mockSetData }}
+    >
       <State />
     </DataContext.Provider>
   ))

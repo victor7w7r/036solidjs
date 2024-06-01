@@ -6,7 +6,10 @@ export default mergeConfig(
   viteConfig,
   defineConfig({
     test: {
-      coverage: { enabled: true },
+      coverage: {
+        enabled: true,
+        exclude: ['*.{cjs,js}']
+      },
       environment: 'jsdom',
       globals: true,
       include: ['./test/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],

@@ -28,6 +28,7 @@ export default () => {
           <img
             alt=''
             class='scale-75 lg:scale-100'
+            data-testid='brand'
             height={200}
             src={isDark() ? brandwhite : brand}
             width={400}
@@ -41,6 +42,7 @@ export default () => {
           <img
             alt=''
             class='scale-50 lg:scale-75 tall:scale-75'
+            data-testid='tailwind'
             height={200}
             src={isDark() ? tailwindwhite : tailwind}
             width={400}
@@ -62,10 +64,33 @@ export default () => {
         </button>
       </div>
       <div class='mx-auto -mt-1 flex w-fit flex-row gap-7'>
-        <button class='blue-button' onClick={changeBlue} type='button' />
-        <button class='purple-button' onClick={changePurple} type='button' />
-        <button class='red-button' onClick={changeRed} type='button' />
-        <button class='emerald-button' onClick={changeEmerald} type='button' />
+        <button
+          aria-label='blue-button'
+          class='blue-button'
+          onClick={changeBlue}
+          role='button'
+        />
+        <button
+          aria-label='purple-button'
+          class='purple-button'
+          onClick={changePurple}
+          role='button'
+          type='button'
+        />
+        <button
+          aria-label='red-button'
+          class='red-button'
+          onClick={changeRed}
+          role='button'
+          type='button'
+        />
+        <button
+          aria-label='emerald-button'
+          class='emerald-button'
+          onClick={changeEmerald}
+          role='button'
+          type='button'
+        />
       </div>
     </div>
   )
