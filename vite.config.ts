@@ -41,7 +41,6 @@ export default defineConfig({
         targetIDE: 'vscode'
       }
     }),
-    analyzer(),
     chunkSplitPlugin()
   ]
 })
