@@ -2,33 +2,30 @@ import { fireEvent, render, screen } from '@solidjs/testing-library'
 
 import Store from '@/store/ui/pages/store'
 
-const mocks = vi.hoisted(() => ({
-  mockNavigate: vi.fn(),
-  mockSetData: vi.fn(),
-  mockSetText: vi.fn(),
-  mockTest: vi.fn().mockReturnValue('test')
-}))
+describe('store', () => {
+  const mocks = vi.hoisted(() => ({
+    mockNavigate: vi.fn(),
+    mockSetData: vi.fn(),
+    mockSetText: vi.fn(),
+    mockTest: vi.fn(() => 'test')
+  }))
 
-vi.mock('@/common/ui/components', () => ({
-  State: () => <div>State Component</div>
-}))
+  vi.mock('@/common/ui/components', () => ({
+    State: () => <div>State Component</div>
+  }))
 
-vi.mock('@/common/ui/hooks', () => ({
-  useTheme: () => ({ control: 'mock-control' })
-}))
+  vi.mock('@/common/ui/hooks', () => ({
+    useTheme: () => ({ control: 'mock-control' })
+  }))
 
-vi.mock('@solidjs/router', () => ({ useNavigate: () => mocks.mockNavigate }))
+  vi.mock('@solidjs/router', () => ({ useNavigate: () => mocks.mockNavigate }))
 
-vi.mock('solid-js', async () => {
-  const actual = await vi.importActual('solid-js')
-  return {
-    ...actual,
+  vi.mock('solid-js', async () => ({
+    ...(await vi.importActual('solid-js')),
     createSignal: () => [mocks.mockTest, mocks.mockSetText],
     useContext: () => ({ setData: mocks.mockSetData })
-  }
-})
+  }))
 
-describe('store', () => {
   it('should render correctly', () => {
     expect.assertions(2)
 

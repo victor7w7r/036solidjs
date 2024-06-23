@@ -7,6 +7,7 @@ describe('spinner', () => {
     expect.assertions(1)
 
     const { container } = render(() => <Spinner />)
+
     expect(container).toBeTruthy()
   })
 
@@ -15,6 +16,7 @@ describe('spinner', () => {
 
     const { container } = render(() => <Spinner />)
     const paths = container.querySelectorAll('path')
+
     expect(paths).toHaveLength(2)
   })
 
@@ -23,6 +25,7 @@ describe('spinner', () => {
 
     const { container } = render(() => <Spinner />)
     const svg = container.querySelector('svg')
+
     expect(svg).toHaveClass('mr-2')
     expect(svg).toHaveClass('size-8')
     expect(svg).toHaveClass('animate-spin')
@@ -35,6 +38,7 @@ describe('spinner', () => {
 
     const { container } = render(() => <Spinner />)
     const svg = container.querySelector('svg')
+
     expect(svg).toHaveAttribute('fill', 'none')
     expect(svg).toHaveAttribute('role', 'status')
     expect(svg).toHaveAttribute('viewBox', '0 0 100 101')

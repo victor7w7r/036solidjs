@@ -2,19 +2,19 @@ import { render, screen } from '@solidjs/testing-library'
 
 import Layout from '@/common/ui/layout/layout'
 
-vi.mock('@/common/ui/hooks', () => ({
-  useTheme: vi.fn().mockReturnValue({ control: 'bg-cyan-700/30' })
-}))
-
-vi.mock('@solidjs/router', () => ({
-  A: (props: { children: JSX.Element }) => <a>{props.children}</a>
-}))
-
-vi.mock('@/common/ui/components/toggler/toggler', () => ({
-  Toggler: () => <div>Toggler Component</div>
-}))
-
 describe('layout', () => {
+  vi.mock('@/common/ui/hooks', () => ({
+    useTheme: vi.fn().mockReturnValue({ control: 'bg-cyan-700/30' })
+  }))
+
+  vi.mock('@solidjs/router', () => ({
+    A: (props: { children: JSX.Element }) => <a>{props.children}</a>
+  }))
+
+  vi.mock('@/common/ui/components/toggler/toggler', () => ({
+    Toggler: () => <div>Toggler Component</div>
+  }))
+
   it('renders children inside main element with Header', () => {
     expect.assertions(2)
 

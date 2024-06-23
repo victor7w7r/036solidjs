@@ -4,13 +4,13 @@ import type { Mock } from 'vitest'
 
 import { Call } from '@/home/ui/components/call/call'
 
-vi.mock('~/di', () => ({ inject: { resolve: vi.fn() } }))
-
-vi.mock('@tanstack/solid-query', () => ({
-  createQuery: vi.fn()
-}))
-
 describe('component', () => {
+  vi.mock('~/di', () => ({ inject: { resolve: vi.fn() } }))
+
+  vi.mock('@tanstack/solid-query', () => ({
+    createQuery: vi.fn()
+  }))
+
   it('renders a spinner while loading', () => {
     expect.assertions(1)
     ;(createQuery as Mock).mockReturnValue({

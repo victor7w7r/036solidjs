@@ -1,23 +1,20 @@
 import { useTheme } from '@/common/ui/hooks'
 
-const mocks = vi.hoisted(() => ({
-  mockSetTheme: vi.fn(),
-  mockTheme: { isDark: false },
-  mockUseContext: vi.fn()
-}))
+describe('useTheme', () => {
+  const mocks = vi.hoisted(() => ({
+    mockSetTheme: vi.fn(),
+    mockTheme: { isDark: false },
+    mockUseContext: vi.fn()
+  }))
 
-vi.mock('solid-js', async () => {
-  const actual = await vi.importActual('solid-js')
-  return {
-    ...actual,
+  vi.mock('solid-js', async () => ({
+    ...(await vi.importActual('solid-js')),
     useContext: () => ({
       setTheme: mocks.mockSetTheme,
       theme: () => mocks.mockTheme
     })
-  }
-})
+  }))
 
-describe('useTheme', () => {
   it('should toggle theme correctly', () => {
     expect.assertions(2)
 

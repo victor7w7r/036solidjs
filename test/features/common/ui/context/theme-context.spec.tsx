@@ -5,23 +5,23 @@ import SessionProvider, {
 } from '@/common/ui/context/theme-context'
 import { whiteTheme } from '~/theme'
 
-const TestComponent = () => {
-  const { setTheme, theme } = useContext(ThemeContext)
-
-  return (
-    <div>
-      <p data-testid='theme'>{JSON.stringify(theme())}</p>
-      <button
-        data-testid='set-theme'
-        onClick={() => setTheme(prev => ({ ...prev, isDark: !prev.isDark }))}
-      >
-        Toggle Dark Mode
-      </button>
-    </div>
-  )
-}
-
 describe('sessionProvider', () => {
+  const TestComponent = () => {
+    const { setTheme, theme } = useContext(ThemeContext)
+
+    return (
+      <div>
+        <p data-testid='theme'>{JSON.stringify(theme())}</p>
+        <button
+          data-testid='set-theme'
+          onClick={() => setTheme(prev => ({ ...prev, isDark: !prev.isDark }))}
+        >
+          Toggle Dark Mode
+        </button>
+      </div>
+    )
+  }
+
   beforeEach(() => {
     document.body.classList.remove('dark')
   })
